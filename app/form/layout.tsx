@@ -1,13 +1,13 @@
 "use client";
 
 import SideBare from "@/components/SideBare";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { usePathname } from "next/navigation";
 
-const variants = {
+const variants: Variants = {
   enter: {
     opacity: 0,
-    x: 80, // nouveau contenu vient de la droite
+    x: 80,
   },
   center: {
     opacity: 1,
@@ -19,13 +19,14 @@ const variants = {
   },
   exit: {
     opacity: 0,
-    x: -80, // ancien contenu sort vers la gauche
+    x: -80,
     transition: {
       duration: 0.6,
       ease: [0.4, 0, 0.2, 1],
     },
   },
 };
+
 
 export default function FormLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
